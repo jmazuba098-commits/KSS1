@@ -12,6 +12,7 @@ th,td{border:1px solid #ccc;padding:10px;text-align:left}
 th{background:#eee}
 #error{color:red;background:#ffebee;padding:10px;border-radius:5px;display:none}
 
+#count{font-weight:bold;font-size:18px}
 </style>
 </head>
 <body>
@@ -23,10 +24,10 @@ th{background:#eee}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js"></script>
 <script>
 const SUPABASE_URL = 'https://chsgaawibbfgvvwbmzhn.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_b9aVNIpA0PifX2rF0n7L4Q_C9wa9dqp';
-const client = supabase.createClient(SUPABASE_URL, 
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNoc2dhYXdsYmJmZ3Z3dmJtemhuIiwicm9sZS
 
-SUPABASE_KEY);
+I6ImFub24iLCJpYXQiOjE3ODk4MzAzODgsImV4cCI6MjEwNTQwNjM4OH0.Mr9aq7ST-0Nlwzila6U2aAIadcLLibXC19OSSPb-cmc';
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function load(){
  try {
@@ -35,15 +36,16 @@ async function load(){
    document.getElementById('count').innerText = 'Total: ' + data.length;
    const t = document.getElementById('table');
    data.forEach(r => {
-     t.innerHTML += `<tr><td>${r.id}</td><td>${r.email}</td><td>${new Date(r.created_at).toLocaleString()}</td></tr>`;
+     t.innerHTML += `<tr><td>${r.id}</td><td>${r.email}</td><td>${new 
+
+Date(r.created_at).toLocaleString()}</td></tr>`;
    });
  } catch(e) {
-   
-
-document.getElementById('count').innerText = 'Failed to load';
+   document.getElementById('count').innerText = 'Failed to load';
    const err = document.getElementById('error');
    err.style.display = 'block';
    err.innerText = 'Error: ' + e.message;
+   console.error(e);
  }
 }
 load();
