@@ -1,2 +1,0 @@
-# KSS1
-SCHOOL
